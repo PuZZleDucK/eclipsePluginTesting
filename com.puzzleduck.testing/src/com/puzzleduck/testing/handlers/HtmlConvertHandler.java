@@ -27,7 +27,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
  * @author bminerds
  *
  */
-public class HtmlConvertHandler extends AbstractHandler implements IHandler {
+public class HtmlConvertHandler extends AbstractHandler {
 
 	private QualifiedName path = new QualifiedName("html", "path");
 
@@ -102,11 +102,11 @@ public class HtmlConvertHandler extends AbstractHandler implements IHandler {
 			compUnit.getCorrespondingResource().getName();
 			String unitName = compUnit.getCorrespondingResource().getName();
 			String[] name = unitName.split("\\.");
-			String targetFile = directory + "\\" + name[0] + ".html";
+			String targetFile = directory + "/" + name[0] + ".html";
 			FileWriter fWriter = new FileWriter(targetFile);
 			BufferedWriter bWriter = new BufferedWriter(fWriter);
 			bWriter.write("<HTML> <HEAD> </HEAD> <BODY> <PRE>");
-			
+			bWriter.write(compUnit.getSource());
 			bWriter.write("</PRE> </BODY> </HTML>");
 			bWriter.flush();
 			bWriter.close();
