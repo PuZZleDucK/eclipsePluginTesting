@@ -76,7 +76,7 @@
       </menuContribution>
       <menuContribution
             allPopups="false"
-            locationURI="menu:org.eclipse.jdt.ui.PackageExplorer">
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
          <command
                commandId="com.puzzleduck.testing.htmlconvert"
                label="Convert to HTML"
