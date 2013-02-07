@@ -81,6 +81,14 @@
                commandId="com.puzzleduck.testing.htmlconvert"
                label="Convert to HTML"
                style="push">
+               <visibleWhen checkEnabled="false">
+                   <with variable="activeMenuSelection">
+                       <iterate ifEmpty="false" operator="or">
+                           <adapt type="org.eclipse.jdt.core.ICompilationUnit">
+                           </adapt>
+                       </iterate>
+                   </with>
+               </visibleWhen>
          </command>
       </menuContribution>
    </extension>
