@@ -63,6 +63,10 @@ public class AddMarkerHandler extends AbstractHandler {
 			IMarker mark = res.createMarker ( IMarker.TASK );
 			mark.setAttribute(IMarker.MESSAGE, "Project marker!");
 			mark.setAttribute(IMarker.PRIORITY, IMarker.PRIORITY_HIGH);
+			mark.setAttribute(IMarker.LOCATION, "here");
+			//mark.setAttribute(IMarker.TEXT, "free text");
+			//mark.setAttribute(IMarker.LINE_NUMBER, 7);
+			//mark.setAttribute(IMarker.PROBLEM, "i have a problem");
 		} catch (JavaModelException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
