@@ -23,6 +23,11 @@
             id="com.puzzleduck.testing.htmlconvert"
             name="Convert">
       </command>
+      <command
+            defaultHandler="com.puzzleduck.testing.handlers.AddMarkerHandler"
+            id="com.puzzleduck.testing.addmarker"
+            name="Convert">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -85,6 +90,23 @@
                    <with variable="activeMenuSelection">
                        <iterate ifEmpty="false" operator="or">
                            <adapt type="org.eclipse.jdt.core.ICompilationUnit">
+                           </adapt>
+                       </iterate>
+                   </with>
+               </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <command
+               commandId="com.puzzleduck.testing.addmarker"
+               label="Add a reminder"
+               style="push">
+               <visibleWhen checkEnabled="false">
+                   <with variable="activeMenuSelection">
+                       <iterate ifEmpty="false" operator="or">
+                           <adapt type="org.eclipse.jdt.core.IJavaProject">
                            </adapt>
                        </iterate>
                    </with>
