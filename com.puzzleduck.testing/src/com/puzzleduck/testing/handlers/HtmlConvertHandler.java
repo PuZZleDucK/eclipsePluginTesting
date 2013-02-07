@@ -15,6 +15,9 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IImportDeclaration;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -105,7 +108,28 @@ public class HtmlConvertHandler extends AbstractHandler {
 			String targetFile = directory + "/" + name[0] + ".html";
 			FileWriter fWriter = new FileWriter(targetFile);
 			BufferedWriter bWriter = new BufferedWriter(fWriter);
-			bWriter.write("<HTML> <HEAD> </HEAD> <BODY> <PRE>");
+			bWriter.write("<HTML> <HEAD> </HEAD> <BODY>");
+			IType thisType = compUnit.findPrimaryType();
+			bWriter.write("<P> IType: " + thisType.getElementName() +  
+				       "("+ thisType.getElementType() + ") </P>");
+			IType[] allTypes = compUnit.getAllTypes();
+//			bWriter.write("<P> Types: " + allTypes.length + "</P>");
+
+			IImportDeclaration[] impDec = compUnit.getImports();
+			bWriter.write("<P> Imports: " + impDec.length + "</P>");
+			for ( IImportDeclaration i : impDec ) {
+				bWriter.write(" --" + i.getElementName() + "<BR />");
+			}			
+			
+			IJavaElement jElement = compUnit.getPrimaryElement();
+			bWriter.write("<P> Primary Element: " 
+				       + jElement.getElementName() +  
+				       "("+ jElement.getElementType() + ") </P>");
+			
+			
+			
+
+			bWriter.write("<HR /> <PRE>");
 			bWriter.write(compUnit.getSource());
 			bWriter.write("</PRE> </BODY> </HTML>");
 			bWriter.flush();
