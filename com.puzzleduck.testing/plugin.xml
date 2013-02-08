@@ -117,8 +117,8 @@
    <extension
          point="org.eclipse.core.runtime.adapters">
       <factory
-            adaptableType="com.puzzleduck.testing.TodoView"
-            class="com.puzzleduck.testing.TodoAdapterFactory">
+            adaptableType="com.puzzleduck.testing.TodoModel"
+            class="com.puzzleduck.testing.adapter.TodoAdapterFactory">
          <adapter
                type="org.eclipse.ui.views.properties.IPropertySource">
          </adapter>
