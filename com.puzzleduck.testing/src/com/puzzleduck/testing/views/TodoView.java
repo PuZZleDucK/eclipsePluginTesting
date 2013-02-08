@@ -24,14 +24,14 @@ public class TodoView extends ViewPart {
 		// TODO Auto-generated method stub
 		tViewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL );
 		tViewer.setContentProvider( new ArrayContentProvider() );
-		tViewer.setLabelProvider( new LabelProvider() );   // MAY NEED CUSTOM LABEL???
+		tViewer.setLabelProvider( new ViewLabelProvider() );   // MAY NEED CUSTOM LABEL???
 		getSite().setSelectionProvider(tViewer);
 		tViewer.setInput( getElements() );
 	}
 
 	private TodoModel[] getElements() {
 		// TODO Auto-generated method stub
-		TodoModel[] todoList = new TodoModel[3];
+		TodoModel[] todoList = new TodoModel[2];
 		todoList[0] = new TodoModel();
 		todoList[1] = new TodoModel();
 		todoList[0].setDescription("Description 1");

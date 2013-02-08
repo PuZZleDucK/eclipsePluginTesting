@@ -114,6 +114,7 @@
          </command>
       </menuContribution>
    </extension>
+
    <extension
          point="org.eclipse.core.runtime.adapters">
       <factory
@@ -124,5 +125,42 @@
          </adapter>
       </factory>
    </extension>
+   
+   
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="com.puzzleduck.testing.views.TodoView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Sample View Category"
+            id="com.puzzleduck.testing">
+      </category>
+      <view
+            name="TodoView"
+            icon="icons/sample.gif"
+            category="com.puzzleduck.testing"
+            class="com.puzzleduck.testing.views.TodoView"
+            id="com.puzzleduck.testing.views.TodoView">
+      </view>
+   </extension>
+   
 
 </plugin>
